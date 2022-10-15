@@ -1,0 +1,25 @@
+.users {
+	margin: 1.5rem 2rem;
+}
+
+.users-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.users-items {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+.users-item {
+	margin: 10px;
+	padding: 1.5rem;
+	background: rgba(204, 202, 202, 0.5);
+}
+
+.users-item-name {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
