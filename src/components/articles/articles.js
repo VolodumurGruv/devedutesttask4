@@ -1,34 +1,27 @@
-import { useEffect, useState } from "react";
-import "../articles/articles.css";
+import useGetData from "../../customHooks/useGetData";
 
 export default function Articles() {
-	const [articles, setArticles] = useState([]);
-
-	useEffect(() => {
-		fetch("https://jsonplaceholder.typicode.com/posts")
-			.then((res) => res.json())
-			.then((data) => setArticles(data));
-	});
+	const articles = useGetData("https://jsonplaceholder.typicode.com/posts");
 
 	return (
-		<section className="articles">
-			<div className="articles-header">
+		<section className="card">
+			<div className="card-header">
 				<h2>Article List</h2>
 				<div>
 					<button className="btn">Make big cards</button>
 					<button className="btn">Add articles</button>
 				</div>
 			</div>
-			<div className="articles-items">
+			<div className="card-items">
 				{articles.map((article) => {
 					return (
-						<div className="articles-item" key={article.id}>
-							<p className="articles-item-title">
+						<div className="card-item" key={article.id}>
+							<p className="card-item-title">
 								{article.title.length > 15
 									? `${article.title.slice(0, 16)}...`
 									: article.title}
 							</p>
-							<p className="articles-item-body">
+							<p className="card-item-body">
 								{article.body.length > 50
 									? `${article.body.slice(0, 51)}...`
 									: article.body}

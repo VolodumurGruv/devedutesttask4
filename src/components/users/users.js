@@ -1,31 +1,24 @@
-import { useEffect, useState } from "react";
-import "../users/users.css";
+import useGetData from "../../customHooks/useGetData";
 
 export default function Users() {
-	const [users, setUsers] = useState([]);
-
-	useEffect(() => {
-		fetch("https://jsonplaceholder.typicode.com/users")
-			.then((res) => res.json())
-			.then((data) => setUsers(data));
-	});
+	const users = useGetData("https://jsonplaceholder.typicode.com/users");
 
 	return (
-		<section className="users">
-			<div className="users-header">
+		<section className="card">
+			<div className="card-header">
 				<h2>Users List</h2>
 				<div>
 					<button className="btn">Make big cards</button>
 					<button className="btn">Add users</button>
 				</div>
 			</div>
-			<div className="users-items">
+			<div className="card-items">
 				{users.map((user) => {
 					return (
-						<div className="users-item" key={user.id}>
-							<p className="users-item-name">{user.name}</p>
-							<p className="users-item-email">{user.email}</p>
-							<p className="users-item-phone">{user.phone}</p>
+						<div className="card-item" key={user.id}>
+							<p className="card-user-name">{user.name}</p>
+							<p className="card-user-email">{user.email}</p>
+							<p className="card-user-phone">{user.phone}</p>
 
 							<button>View</button>
 							<button>Change color</button>

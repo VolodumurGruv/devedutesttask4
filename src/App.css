@@ -8,3 +8,38 @@
 	background: rgba(0, 119, 255, 0.795);
 	color: #fff;
 }
+
+.card {
+	margin: 1.5rem 2rem;
+}
+
+.card-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.card-items {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+}
+
+.card-item {
+	margin: 10px;
+	padding: 1.5rem;
+	background: rgba(204, 202, 202, 0.5);
+}
+
+.card-item-title {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
+
+.card-item img {
+	display: block;
+}
+
+.card-user-name {
+	font-size: 1.2rem;
+	font-weight: 700;
+}
