@@ -1,17 +1,13 @@
 import useGetData from "../../customHooks/useGetData";
+import CardAction from "../cardAction";
+import CardHeader from "../cardHeader";
 
 export default function Articles() {
 	const articles = useGetData("https://jsonplaceholder.typicode.com/posts");
 
 	return (
 		<section className="card">
-			<div className="card-header">
-				<h2>Article List</h2>
-				<div>
-					<button className="btn">Make big cards</button>
-					<button className="btn">Add articles</button>
-				</div>
-			</div>
+			<CardHeader name="articles" />
 			<div className="card-items">
 				{articles.map((article) => {
 					return (
@@ -27,8 +23,7 @@ export default function Articles() {
 									: article.body}
 							</p>
 
-							<button>View</button>
-							<button>Change color</button>
+							<CardAction />
 						</div>
 					);
 				})}
